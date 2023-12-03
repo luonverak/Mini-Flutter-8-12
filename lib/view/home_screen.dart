@@ -1,9 +1,11 @@
 import 'package:demo3/model/category_model.dart';
+import 'package:demo3/model/product_model.dart';
 import 'package:demo3/widget/colors_data.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/appbar_screen.dart';
 import '../widget/drawer_screen.dart';
+import '../widget/product_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -37,6 +39,20 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                for (int i = 0; i < listProduct.length; i++)
+                  ProductItem(
+                    model: listProduct[i],
+                  ),
+              ],
+            ),
+          )
         ],
       ),
     );
