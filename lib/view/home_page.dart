@@ -1,6 +1,12 @@
+import 'package:demo3/view/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
+
+import 'cart_screen.dart';
+import 'favorite_screen.dart';
+import 'home_screen.dart';
+import 'profile_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   dynamic selected;
-  var heart = false;
+
   PageController controller = PageController();
   @override
   Widget build(BuildContext context) {
@@ -75,16 +81,15 @@ class _HomePageState extends State<HomePage> {
           });
         },
       ),
-      body: SafeArea(
-        child: PageView(
-          controller: controller,
-          children: const [
-            Center(child: Text('Home')),
-            Center(child: Text('Star')),
-            Center(child: Text('Style')),
-            Center(child: Text('Profile')),
-          ],
-        ),
+      body: PageView(
+        controller: controller,
+        children: const [
+          HomeScreen(),
+          SearchScreen(),
+          CartScreen(),
+          FavoriteScreen(),
+          ProfileScreen()
+        ],
       ),
     );
   }
