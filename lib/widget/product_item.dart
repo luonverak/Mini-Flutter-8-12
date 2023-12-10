@@ -14,7 +14,7 @@ class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 20, left: 8),
+      padding: const EdgeInsets.only(right: 3, left: 8),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -25,7 +25,7 @@ class _ProductItemState extends State<ProductItem> {
           );
         },
         child: Container(
-          width: MediaQuery.sizeOf(context).width / 2,
+          width: MediaQuery.sizeOf(context).width / 2.4,
           height: 280,
           decoration: BoxDecoration(
             color: Colors.white,
