@@ -2,7 +2,6 @@ import 'package:demo3/model/category_model.dart';
 import 'package:demo3/model/product_model.dart';
 import 'package:demo3/widget/colors_data.dart';
 import 'package:flutter/material.dart';
-
 import '../widget/all_item.dart';
 import '../widget/appbar_screen.dart';
 import '../widget/drawer_screen.dart';

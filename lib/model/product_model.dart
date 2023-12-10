@@ -7,7 +7,7 @@ class ProductModel {
   final double price;
   final String description;
   late int counter;
-  final String image;
+  late String image;
   final List<String> previewImage;
   final List<int> size;
   late bool favorite;
@@ -37,19 +37,19 @@ final List<ProductModel> listProduct = [
       name: 'Men Cloud X3',
       price: 10,
       description:
-          'The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.',
+          'The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.The ultra-agile shoe for mixed-sport workouts and all-day wear. With a breathable upper and impact-absorbing cushioning.',
       counter: 1,
       image: 'asset/image/shoe1.webp',
       previewImage: [
         'asset/image/shoe1.webp',
         'asset/image/shoe2.webp',
         'asset/image/shoe3.webp',
-        'asset/image/shoe4.png',
+        'asset/image/soe9.png',
       ],
       size: [41, 42, 43, 44],
       favorite: false,
       date: '11/12/2023',
-      color: Colors.black,
+      color: Colors.red,
       category: '${listCategory[2].id}'),
   ProductModel(
     id: 2,
