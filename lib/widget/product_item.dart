@@ -1,21 +1,19 @@
-import 'dart:io';
-import 'dart:js_interop';
-
-import 'package:demo3/model/category_model.dart';
 import 'package:demo3/model/product_model.dart';
 import 'package:flutter/material.dart';
 
-List item = [];
-
-class ProductItem extends StatelessWidget {
+class ProductItem extends StatefulWidget {
   const ProductItem({super.key, required this.model});
   final ProductModel model;
+
+  @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
-    
-
     return Padding(
-      padding: const EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 20, left: 8),
       child: Container(
         width: MediaQuery.sizeOf(context).width / 2,
         height: 280,
@@ -30,11 +28,11 @@ class ProductItem extends StatelessWidget {
               width: double.infinity,
               height: 180,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 225, 225, 225),
+                color: const Color.fromARGB(255, 225, 225, 225),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset(
-                model.image,
+                widget.model.image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -44,39 +42,49 @@ class ProductItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    model.name,
+                    widget.model.name,
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    model.category,
+                    widget.model.description,
                     style: const TextStyle(
                       fontSize: 16,
                       color: Color.fromARGB(255, 90, 90, 90),
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$ ${model.price}',
+                        '\$ ${widget.model.price}',
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.red,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.favorite,
-                            color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            widget.model.favorite = !widget.model.favorite;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: (widget.model.favorite == true)
+                                ? Colors.red
+                                : Colors.grey,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.favorite,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

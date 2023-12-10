@@ -3,6 +3,7 @@ import 'package:demo3/model/product_model.dart';
 import 'package:demo3/widget/colors_data.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/all_item.dart';
 import '../widget/appbar_screen.dart';
 import '../widget/drawer_screen.dart';
 import '../widget/product_item.dart';
@@ -15,45 +16,69 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       drawer: const DrawerScreen(),
-      body: ListView(
-        children: [
-          const AppBarScreen(),
-          const SizedBox(
-            height: 20,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (int i = 0; i < listCategory.length; i++)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20, left: 10),
-                    child: Text(
-                      listCategory[i].name,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
+      body: SafeArea(
+        child: ListView(
+          children: [
+            const AppBarScreen(),
+            const SizedBox(
+              height: 20,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (int i = 0; i < listCategory.length; i++)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20, left: 10),
+                      child: Text(
+                        listCategory[i].name,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (int i = 0; i < listProduct.length; i++)
-                  ProductItem(
-                    model: listProduct[i],
-                  ),
-              ],
+            const SizedBox(
+              height: 20,
             ),
-          )
-        ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (int i = 0; i < 3; i++)
+                    ProductItem(
+                      model: listProduct[i],
+                    ),
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text(
+                'Best Selling',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(
+              child: ListView.builder(
+                shrinkWrap: true,
+                primary: false,
+                itemCount: listProduct.length,
+                itemBuilder: (context, index) {
+                  return AllItem(
+                    model: listProduct[index],
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
