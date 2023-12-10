@@ -58,7 +58,7 @@ class _ProductItemState extends State<ProductItem> {
                       widget.model.name,
                       style: const TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(

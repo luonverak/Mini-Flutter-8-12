@@ -97,6 +97,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             ),
             GridView.count(
               shrinkWrap: true,
+              primary: false,
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
