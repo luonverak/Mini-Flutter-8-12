@@ -1,5 +1,6 @@
 import 'package:demo3/model/category_model.dart';
 import 'package:demo3/model/product_model.dart';
+import 'package:demo3/view/category_screen.dart';
 import 'package:demo3/widget/colors_data.dart';
 import 'package:flutter/material.dart';
 import '../widget/all_item.dart';
@@ -29,11 +30,22 @@ class HomeScreen extends StatelessWidget {
                   for (int i = 0; i < listCategory.length; i++)
                     Padding(
                       padding: const EdgeInsets.only(right: 20, left: 10),
-                      child: Text(
-                        listCategory[i].name,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  CategoryScreen(model: listCategory[i]),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          listCategory[i].name,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ),

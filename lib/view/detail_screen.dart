@@ -293,6 +293,14 @@ class _DetailScreenState extends State<DetailScreen> {
           )
         ],
       ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          '@${widget.model.date}',
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 18, color: Colors.grey),
+        ),
+      ),
     );
   }
 }
